@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Meus Gastos</string>
+    <style name="Theme.MeusGastos" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">#F1F5F9</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>
