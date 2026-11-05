@@ -4,9 +4,12 @@ App Android de controle de gastos em Kotlin e Jetpack Compose, com arquitetura M
 
 ## Como abrir
 
-1. Extraia o ZIP e abra a pasta `MeusGastos` no Android Studio, pelo menu **File → Open**.
-2. Use o JDK 17 do Android Studio ou configure um JDK 17 instalado e sincronize o Gradle. O projeto usa o SDK Android 36.
-3. Selecione um emulador ou celular com Android 6.0 (API 23) ou superior e clique em **Run**.
+1. Use o Android Studio Narwhal 3 Feature Drop (2025.1.3) ou uma versão posterior compatível com o Android Gradle Plugin 8.13. Extraia o ZIP e abra, em **File → Open**, a pasta interna `MeusGastos` que contém `settings.gradle.kts`.
+2. Em **Tools → SDK Manager → SDK Platforms**, instale **Android 16.0 (API 36)** se ele ainda não estiver instalado.
+3. Se a IDE pedir o **Gradle JDK**, selecione o JDK embutido do Android Studio (**jbr**, Java 17 ou 21). Depois rode **File → Sync Project with Gradle Files**. A primeira sincronização baixa o Gradle e as dependências.
+4. Na barra superior, selecione a configuração **app** e um emulador no **Device Manager**, ou conecte um celular com depuração USB. Clique em **Run ▶**. O dispositivo precisa usar Android 6.0 (API 23) ou superior.
+
+Se você já abriu uma versão anterior do projeto e trocou as dependências na mesma pasta, rode **Build → Clean Project** antes de executar novamente.
 
 Para instalar a versão de demonstração no celular, o ZIP também inclui o arquivo `MeusGastos-debug.apk`.
 
