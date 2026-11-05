@@ -36,6 +36,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -188,8 +190,7 @@ private fun CampoGasto(
     TextField(
         value = valor,
         onValueChange = aoDigitar,
-        modifier = modifier,
-        label = { Text(rotulo) },
+        modifier = modifier.semantics { contentDescription = rotulo },
         placeholder = { Text(exemplo) },
         singleLine = true,
         keyboardOptions = KeyboardOptions(keyboardType = teclado),
@@ -198,7 +199,7 @@ private fun CampoGasto(
             focusedContainerColor = FundoCampo,
             unfocusedContainerColor = FundoCampo,
             unfocusedIndicatorColor = Color(0xFFCAD8E8),
-            unfocusedLabelColor = AzulSuave
+            unfocusedPlaceholderColor = AzulSuave
         )
     )
 }
