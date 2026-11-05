@@ -38,6 +38,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -278,3 +279,46 @@ private fun Etiqueta(rotulo: String, selecionada: Boolean, aoClicar: () -> Unit)
 
 private fun emReais(valor: Double): String =
     NumberFormat.getCurrencyInstance(FormatoReal).format(valor)
+
+@Preview(showBackground = true, widthDp = 400)
+@Composable
+private fun ResumoTotalPreview() {
+    TemaMeusGastos { ResumoTotal(total = 201.70, quantidade = 4) }
+}
+
+@Preview(showBackground = true, widthDp = 400)
+@Composable
+private fun LinhaGastoPreview() {
+    TemaMeusGastos {
+        LinhaGasto(Gasto(1, "Almoço no bandejão", 18.50, Categoria.ALIMENTACAO), {})
+    }
+}
+
+@Preview(showBackground = true, widthDp = 400)
+@Composable
+private fun FormularioComErroPreview() {
+    TemaMeusGastos {
+        FormularioGasto(
+            descricao = "Café",
+            valorTexto = "abc",
+            categoria = Categoria.ALIMENTACAO,
+            erro = "O valor precisa ser um número",
+            aoDigitarDescricao = {},
+            aoDigitarValor = {},
+            aoSelecionarCategoria = {},
+            aoAdicionar = {}
+        )
+    }
+}
+
+@Preview(showBackground = true, widthDp = 400)
+@Composable
+private fun FiltroCategoriasPreview() {
+    TemaMeusGastos { FiltroCategorias(selecionada = null, aoFiltrar = {}) }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun EtiquetaPreview() {
+    TemaMeusGastos { Etiqueta("Alimentação", selecionada = true, aoClicar = {}) }
+}
